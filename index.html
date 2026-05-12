@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Tharuuu🤍✨!</title>
+
+  <!-- This script pulls in Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sakura: '#FF5CA8', // Bright birthday pink
+            navy: '#FFE6EE', // Secondary background
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- These are for the animations and photo gallery -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" />
+
+  <!-- Google Fonts for the Anime look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Link to your new external CSS file -->
+  <link rel="stylesheet" href="style.css?v=5">
+  <!-- IMPORTANT: Replace with a real image link after you upload it -->
+  <meta property="og:image" content="https://placehold.co/1200x630/87CEEB/FFFFFF?text=A+Surprise+For+Tharuuu🤍✨">
+</head>
+
+<body>
+  <!-- Background Audio -->
+  <audio id="bg-music" loop autoplay>
+    <!-- Replace with your actual audio file if you have one -->
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Finale Audio -->
+  <audio id="finale-music" loop>
+    <source src="song 2.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Mute/Unmute Button -->
+  <button id="mute-btn"
+    class="fixed top-4 right-4 z-50 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white transition-colors cursor-pointer">
+    <!-- Speaker Icon (Unmuted) -->
+    <svg id="icon-unmuted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z" />
+    </svg>
+    <!-- Muted Icon -->
+    <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hidden" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+        clip-rule="evenodd" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+    </svg>
+  </button>
+  <!-- Canvas for the falling cherry blossoms -->
+  <canvas id="sakura-canvas"></canvas>
+
+  <!-- Section 1: Hero Welcome -->
+  <header class="h-screen relative flex items-center justify-center text-white overflow-hidden">
+    <!-- Replaced video with an image background -->
+    <img src="img/tharuuuu.jpg" alt="Background" class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+    <div class="text-center z-10 p-4" data-aos="fade-in" data-aos-duration="1500">
+      <h1 class="text-5xl md:text-7xl font-anime drop-shadow-lg">Happy Birthday, Tharuuu🤍✨!</h1>
+      <p class="mt-4 text-xl font-semibold">Celebrating a wonderful journey together!</p>
+      <div id="countdown" class="mt-6 text-2xl font-semibold tracking-widest leading-relaxed"></div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6 md:p-12">
+
+    <!-- Section 2: A Letter For You -->
+    <section class="my-16 md:my-24 max-w-3xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-anime text-sakura mb-8 drop-shadow-sm">A Special Message For You</h2>
+      <div class="text-left text-lg leading-relaxed space-y-4 bg-white p-8 rounded-lg shadow-lg">
+        <!-- TODO: Write your personal letter here -->
+        <p>Hey Tharuuuu ❤️</p>
+
+        <p>
+          Wish you a very Happy Birthday Tharunika! ✨
+          May God fulfil all your wishes, give you endless happy days, and make every dream of yours turn into reality.
+          I hope your life is always filled with peace, love, cute pets, warm moments, and feels straight out of a
+          beautiful manga 🌸
+        </p>
+
+        <p>
+          Thank you for always being so kind and for being one of the reasons behind everyone’s smile.
+          The way you stay true to yourself, stay connected to your roots, and care for people so genuinely is something
+          really rare 🤍
+          You have this calm, precious vibe that makes people feel comfortable around you, and honestly, we’re all lucky
+          to know someone like you.
+          We may not live in a city of gems, but somehow we still found a real one 💎
+        </p>
+
+        <p>
+          Indha year unakku confidence, success, and “I did it” nu proud feel panna moments neraya varanum 🌟
+          And hopefully indha year namma rendu perum serndhu iPhone vaangura moment um nadakanum 😭📱✨
+        </p>
+
+        <p>
+          Life epdi change aanaalum, nee ippo irukra maari kind and precious person ah epovume irukanum ❤️
+          Edhu vandhaalum, happy ah irundhaalum tough times ah irundhaalum, naan epovume un kooda irupen 🤍
+        </p>
+
+        <p>
+          Once again, happiest birthday Tharuuuu 🦋✨
+        </p>
+        <p class="text-right mt-8">
+          Regards<br>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: The Timeline -->
+    <section class="my-16 md:my-24">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">Your Story Arc</h2>
+      <div class="space-y-16">
+        <!-- Timeline Item 1 -->
+        <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <!-- TODO: Replace with your photo -->
+          <img src="img/tharuuuu.jpg" alt="Add photo 1"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-left">
+            <!-- TODO: Customize the date and story -->
+            <h3 class="text-2xl font-anime text-sakura">Our first Meeting (official ah uhv project pannum podhu )</h3>
+            <p class="mt-2 text-lg">First impression la romba calm and silent ah therinja…
+              aana konjam neram pesunadhuku aprm dhaan purinjiduchu — nee overaaa pesuva nu 😭✨(comfortable people kitta
+              mattum thaan ) </p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 2 -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+          <!-- TODO: Replace with your photo -->
+          <img src="img/tharuuuu (10).jpeg" alt="Add photo 2"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-right">
+            <!-- TODO: Customize the date and story -->
+            <h3 class="text-2xl font-anime text-sakura">The comfort person discovered</h3>
+            <p class="mt-2 text-lg">Un kitta irukra kindness and caring nature dhan unnoda biggest beauty 🤍
+              Everyone around you automatically feels comfortable.</p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 3 (NEW) -->
+        <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <img src="img/tharuuuu (4).jpeg" alt="Add photo 3"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-left">
+            <h3 class="text-2xl font-anime text-sakura">Main Character energy</h3>
+            <p class="mt-2 text-lg">Tharuuuu has this “main character energy” — innocent, kind, and genuinely precious
+              🤍,Indha smile ah paatha stress kuda konjam jealous aagum 😭✨
+              Nee happy ah irukumbodhu whole vibe eh different.</p>
+            <br>
+          </div>
+        </div>
+        <!-- Timeline Item 4 (NEW) -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8" data-aos="fade-left">
+          <img src="img/tharuuuu (9).jpeg" alt="Add photo4"
+            class="w-full md:w-1/2 rounded-lg shadow-xl border-4 border-white">
+          <div class="text-center md:text-right">
+            <h3 class="text-2xl font-anime text-sakura">The Real Gem</h3>
+            <p class="mt-2 text-lg">Life la neraya people varuvaanga… but few people dhaan unforgettable ah irupaanga.
+              Nee andha type 💎🤍</p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Your Favourite Photos of your loved Ones (NEW SECTION) -->
+    <section class="my-16 md:my-24">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">My Collections😅</h2>
+      <div class="relative">
+        <!-- Scroll Buttons -->
+        <button id="scroll-left-btn"
+          class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="scroll-right-btn"
+          class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Scrollable Container -->
+        <div id="hall-of-fame-scroller"
+          class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide p-4 -mx-4">
+          <div class="flex snap-x snap-mandatory gap-8">
+            <!--  Card 1 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="100">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (7).jpeg" alt="Photo 1" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">❤️ Mirror Queen</h3>
+                <p class="mt-2">"✨📸"</p>
+              </div>
+            </div>
+            <!--  Card 2 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (6).jpeg" alt="Photo 2" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🌸 Golden Hour</h3>
+                <p class="mt-2">"☀️🦋"</p>
+              </div>
+            </div>
+            <!--  Card 3 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="300">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (3).jpeg" alt="Photo 3" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🎀 Retro Vibes</h3>
+                <p class="mt-2">"🌆💗"</p>
+              </div>
+            </div>
+            <!--  Card 4 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="400">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (1).jpeg" alt="Photo 4" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🧸 Soft Soul</h3>
+                <p class="mt-2">"🤍🌼"</p>
+              </div>
+            </div>
+            <!--  Card 5 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="500">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (2).jpeg" alt="Photo 5" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🌙 Bus Diaries</h3>
+                <p class="mt-2">"🖤✨"</p>
+              </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="600">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (5).jpeg" alt="Photo 6" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🤍 White Aura</h3>
+                <p class="mt-2">"🌿☁️"</p>
+              </div>
+            </div>
+            <!--  Card 7 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="500">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (8).jpeg" alt="Photo 5" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🎧 Concert Glow</h3>
+                <p class="mt-2">"🌃💫"</p>
+              </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="snap-center flex-shrink-0 w-10/12 sm:w-1/2 md:w-1/3 lg:w-1/4" data-aos="fade-up"
+              data-aos-delay="600">
+              <div class="bg-white p-6 rounded-lg shadow-lg text-center h-full">
+                <img src="img/tharuuuu (11).jpeg" alt="Photo 6" class="w-full h-80 object-cover rounded-md mb-4">
+                <h3 class="text-2xl font-anime text-sakura">🍃 Peaceful Vibe</h3>
+                <p class="mt-2">"🌳🤍"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: The Gallery -->
+    <section class="my-16 md:my-24">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-12" data-aos="fade-up">The Y.V.A. Collection</h2>
+      <p class="text-center text-lg -mt-8 mb-12">(Your Very-own Adventures)</p>
+
+      <div class="relative max-w-6xl mx-auto px-12 group">
+        <!-- Scroll Buttons -->
+        <button id="gallery-scroll-left"
+          class="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="gallery-scroll-right"
+          class="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-opacity opacity-0 md:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sakura" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Scrollable Container -->
+        <div id="lightgallery-scroller"
+          class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide p-4 -mx-4">
+          <div id="lightgallery" class="flex snap-x snap-mandatory gap-8">
+            <div data-aos="zoom-in" class="snap-center flex-shrink-0 w-80 h-96 md:w-96 md:h-[400px]">
+              <video src="img/tharuuuu (12).mp4" controls autoplay loop muted playsinline
+                class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white">
+              </video>
+            </div>
+            <div data-aos="zoom-in" class="snap-center flex-shrink-0 w-80 h-96 md:w-96 md:h-[400px]">
+              <video src="img/tharuuuu (13).mp4" controls autoplay loop muted playsinline
+                class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white">
+              </video>
+            </div>
+            <div data-aos="zoom-in" class="snap-center flex-shrink-0 w-80 h-96 md:w-96 md:h-[400px]">
+              <video src="img/tharuuuu (14).mp4" controls autoplay loop muted playsinline
+                class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white">
+              </video>
+            </div>
+            <div data-aos="zoom-in" class="snap-center flex-shrink-0 w-80 h-96 md:w-96 md:h-[400px]">
+              <video src="img/tharuuuu (15).mp4" controls autoplay loop muted playsinline
+                class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white">
+              </video>
+            </div>
+            <div data-aos="zoom-in" class="snap-center flex-shrink-0 w-80 h-96 md:w-96 md:h-[400px]">
+              <video src="img/tharuuuu (16).mp4" controls autoplay loop muted playsinline
+                class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 w-full h-full object-cover border-4 border-white">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Finale -->
+    <section class="my-16 md:my-24" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-anime text-center mb-4">Happy Birthday Tharuuu🤍✨</h2>
+      <div
+        class="max-w-4xl mx-auto rounded-lg shadow-2xl overflow-hidden bg-white p-8 text-center relative border-4 border-sakura"
+        id="finale-container">
+
+        <div id="cake-instructions" class="mb-8 relative z-20">
+          <h3 class="text-3xl font-anime text-navy mb-2">Time for Cake! 🎂</h3>
+          <p class="text-lg text-gray-700 mb-4 animate-pulse">Click directly on the cake to cut it!</p>
+        </div>
+
+        <div id="cake-container"
+          class="relative mx-auto w-80 h-80 mt-12 flex justify-center items-end opacity-50 pointer-events-none transition-opacity duration-500">
+
+          <!-- Left Half -->
+          <div id="cake-left" class="cake-half cake-left flex flex-col justify-end overflow-hidden">
+            <div class="cake-cream"></div>
+            <div class="cake-layer layer-1"></div>
+            <div class="cake-layer layer-2"></div>
+          </div>
+
+          <!-- Right Half -->
+          <div id="cake-right" class="cake-half cake-right flex flex-col justify-end overflow-hidden">
+            <div class="cake-cream"></div>
+            <div class="cake-layer layer-1"></div>
+            <div class="cake-layer layer-2"></div>
+          </div>
+
+          <!-- Candle -->
+          <div id="candle" class="candle">
+            <div class="candle-stripe"></div>
+            <div class="candle-stripe"></div>
+            <div class="candle-stripe"></div>
+            <!-- Flame -->
+            <div id="flame" class="flame"></div>
+          </div>
+        </div>
+
+        <!-- Final Message (Hidden initially) -->
+        <div id="final-message" class="hidden opacity-0 mt-12 transition-opacity duration-1000 relative z-20">
+          <h3 class="text-4xl font-anime text-sakura">You'll always be special to me ❤️</h3>
+          <p class="text-xl mt-4 text-navy">Enjoy your amazing day, Tharuuuu!</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-navy text-white p-8 text-center">
+    <p>Enjoy your day to the fullest.</p>
+    <p class="text-sm opacity-70 mt-2">Hope you liked it...😮‍💨Byeeee...</p>
+  </footer>
+
+  <!-- These scripts are for the animations and photo gallery -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Link to your new external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+
+</html>

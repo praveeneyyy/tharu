@@ -1,0 +1,141 @@
+/* Custom styles for our Anime Theme */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF0F5; /* Main bg */
+    color: #5A2A3A; /* Dark rose text */
+}
+.font-anime {
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+.text-sakura {
+    color: #FF5CA8; /* Bright birthday pink */
+}
+.bg-navy {
+    background-color: #FFE6EE !important; /* Secondary background */
+    color: #5A2A3A !important;
+}
+/* Style for the falling petals canvas */
+#sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none; /* Allows clicks to go through the canvas */
+}
+/* For hiding the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+
+/* --- Interactive Cake Styles (Aesthetic & Plain) --- */
+.cake-half {
+  width: 150px;
+  height: 150px;
+  background-color: #FFE3EC; /* Cream pink */
+  position: absolute;
+  bottom: 0;
+  transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1.5s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.cake-left {
+  left: 50%;
+  transform: translateX(-100%);
+  border-radius: 12px 0 0 12px;
+  transform-origin: bottom right;
+}
+.cake-right {
+  right: 50%;
+  transform: translateX(100%);
+  border-radius: 0 12px 12px 0;
+  transform-origin: bottom left;
+}
+
+/* Cream topping */
+.cake-cream {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: #FFF4F7; /* Light blush white */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.cake-left .cake-cream {
+  border-radius: 12px 0 0 12px;
+}
+.cake-right .cake-cream {
+  border-radius: 0 12px 12px 0;
+}
+
+/* Layers */
+.cake-layer {
+  position: absolute;
+  width: 100%;
+  height: 16px;
+  background: #FFC1D6; /* Balloon pink */
+}
+.layer-1 { top: 60px; }
+.layer-2 { top: 100px; }
+
+/* Candle */
+.candle {
+  width: 16px;
+  height: 60px;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 145px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  z-index: 10;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: opacity 1s ease;
+}
+.candle-stripe {
+  width: 100%;
+  height: 8px;
+  background: #FFD6E7; /* Soft pastel pink */
+  margin-top: 8px;
+}
+
+.flame {
+  width: 20px;
+  height: 30px;
+  background: #fbbf24;
+  border: 2px solid #ea580c;
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 25px 8px rgba(251, 191, 36, 0.7);
+  animation: flicker 0.12s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(0.95); opacity: 0.9; box-shadow: 0 0 20px 5px rgba(251, 191, 36, 0.5); }
+  50% { transform: translateX(-50%) scale(1.05) rotate(-2deg); opacity: 1; box-shadow: 0 0 25px 8px rgba(251, 191, 36, 0.7); }
+  100% { transform: translateX(-50%) scale(1) rotate(2deg); opacity: 0.8; box-shadow: 0 0 15px 5px rgba(251, 191, 36, 0.5); }
+}
+
+.flame-out {
+  animation: none !important;
+  opacity: 0 !important;
+  transform: translateX(-50%) scale(0) !important;
+  transition: all 0.5s ease;
+}
+
+/* Cake Split animations */
+.cake-left.cut {
+  transform: translateX(-100%) rotate(-12deg) translate(-25px, 15px);
+}
+.cake-right.cut {
+  transform: translateX(100%) rotate(12deg) translate(25px, 15px);
+}
